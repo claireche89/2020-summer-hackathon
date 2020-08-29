@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">RandomRecipe</string>
-    <string name="recipe_name_text">Recipe Name</string>
-    <string name="random_button_text">Random</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-</resources>
