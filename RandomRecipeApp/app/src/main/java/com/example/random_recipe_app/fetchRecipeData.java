@@ -3,7 +3,6 @@ package com.example.random_recipe_app;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.widget.ImageView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,6 +20,7 @@ public class fetchRecipeData extends AsyncTask {
     String data = "";
     String recipeName = "";
     String thumbnailURL = "";
+    String instruction = "";
     Bitmap thumbnailBMP = null;
 
     @Override
@@ -49,7 +49,8 @@ public class fetchRecipeData extends AsyncTask {
                 JSONObject recipe = (JSONObject) recipes.get(i);
                 recipeName = (String) recipe.get("strMeal") ;
                 thumbnailURL = (String) recipe.get("strMealThumb") ;
-                System.out.println("thumbnail URL is " + thumbnailURL);
+             //   instruction = (String) recipe.get("strInstructions");
+                //System.out.println("thumbnail URL is " + thumbnailURL);
             }
 
         } catch (MalformedURLException e) {
@@ -78,8 +79,9 @@ public class fetchRecipeData extends AsyncTask {
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
 
-        MainActivity.RecipeName_TextView.setText(this.recipeName);
-        MainActivity.RecipeThumbnail_ImageView.setImageBitmap(this.thumbnailBMP);
+        RandomRecipeFragment.RecipeName_TextView.setText(this.recipeName);
+        RandomRecipeFragment.RecipeThumbnail_ImageView.setImageBitmap(this.thumbnailBMP);
+        //fragment_recipe_details.Recipe_TextView.setText(this.instruction);
 
     }
 }
