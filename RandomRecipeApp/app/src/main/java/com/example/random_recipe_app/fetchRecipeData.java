@@ -1,6 +1,9 @@
 package com.example.random_recipe_app;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.widget.ImageView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,6 +20,8 @@ import java.net.URL;
 public class fetchRecipeData extends AsyncTask {
     String data = "";
     String recipeName = "";
+    String thumbnailURL = "";
+    Bitmap thumbnailBMP = null;
 
     @Override
     protected Object doInBackground(Object[] objects) {
@@ -24,6 +29,7 @@ public class fetchRecipeData extends AsyncTask {
 
             //adapted from Abhishek Panwar's JSON Data Fetching & Parsing Tutorial: https://www.youtube.com/watch?v=Vcn4OuV4Ixg
 
+            //read in data from TheMealDB
             URL url = new URL("https://www.themealdb.com/api/json/v1/1/random.php");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
@@ -42,6 +48,8 @@ public class fetchRecipeData extends AsyncTask {
             for (int i=0; i < recipes.length(); i++) {
                 JSONObject recipe = (JSONObject) recipes.get(i);
                 recipeName = (String) recipe.get("strMeal") ;
+                thumbnailURL = (String) recipe.get("strMealThumb") ;
+                System.out.println("thumbnail URL is " + thumbnailURL);
             }
 
         } catch (MalformedURLException e) {
@@ -52,7 +60,17 @@ public class fetchRecipeData extends AsyncTask {
             e.printStackTrace();
         }
 
+        //adapted from Chris Ross's Android Image Loading from a String URL tutorial: ttps://medium.com/@crossphd/android-image-loading-from-a-string-url-6c8290b82c5e
 
+        //read in thumbnail image as bitmap
+        try {
+            InputStream in = new java.net.URL(thumbnailURL).openStream();
+            thumbnailBMP = BitmapFactory.decodeStream(in);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -61,5 +79,7 @@ public class fetchRecipeData extends AsyncTask {
         super.onPostExecute(o);
 
         MainActivity.RecipeName_TextView.setText(this.recipeName);
+        MainActivity.RecipeThumbnail_ImageView.setImageBitmap(this.thumbnailBMP);
+
     }
 }
