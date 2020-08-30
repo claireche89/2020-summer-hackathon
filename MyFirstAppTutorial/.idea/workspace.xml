@@ -7,12 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9533394-fab6-4397-bffb-47977c9cf45e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../RandomRecipe/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RandomRecipe/app/src/main/java/com/example/randomrecipe/Recipe_Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RandomRecipe/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RandomRecipe/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RandomRecipe/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RandomRecipe/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RandomRecipe/app/src/main/java/com/example/randomrecipe/Random_RecipeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RandomRecipe/app/src/main/java/com/example/randomrecipe/Random_RecipeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RandomRecipe/app/src/main/java/com/example/randomrecipe/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RandomRecipe/app/src/main/java/com/example/randomrecipe/Recipe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RandomRecipeApp/app/src/main/java/com/example/random_recipe_app/RandomRecipeFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RandomRecipeApp/app/src/main/res/layout/fragment_random_recipe.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RandomRecipeApp/app/src/main/res/values/dimens.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RandomRecipeApp/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../RandomRecipeApp/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RandomRecipeApp/app/src/main/java/com/example/random_recipe_app/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RandomRecipeApp/app/src/main/java/com/example/random_recipe_app/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RandomRecipeApp/app/src/main/java/com/example/random_recipe_app/fetchRecipeData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../RandomRecipeApp/app/src/main/java/com/example/random_recipe_app/fetchRecipeData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RandomRecipeApp/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RandomRecipeApp/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RandomRecipeApp/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RandomRecipeApp/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +57,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -126,6 +132,11 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
   <component name="WindowStateProjectService">
     <state x="1161" y="320" key="AndroidCreateXmlResourceDialog" timestamp="1598565625181">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -171,10 +182,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="988" height="328" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598568625389" />
-    <state x="906" y="157" key="SettingsEditor" timestamp="1598572145277">
+    <state x="906" y="157" key="SettingsEditor" timestamp="1598756775047">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="906" y="157" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598572145277" />
+    <state x="906" y="157" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598756775047" />
     <state x="632" y="193" width="1079" height="856" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1598555025791">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
