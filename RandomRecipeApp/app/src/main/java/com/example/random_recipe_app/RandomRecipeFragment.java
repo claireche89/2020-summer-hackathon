@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class RandomRecipeFragment extends Fragment {
     Button click;
@@ -30,6 +32,17 @@ public class RandomRecipeFragment extends Fragment {
         click = (Button) fragmentRandomRecipe.findViewById(R.id.random_recipe_button);
         RecipeName_TextView = (TextView) fragmentRandomRecipe.findViewById(R.id.recipe_name);
         RecipeThumbnail_ImageView = (ImageView) fragmentRandomRecipe.findViewById(R.id.recipe_thumbnail_image);
+
+        RecipeThumbnail_ImageView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                FragmentTransaction fr=getFragmentManager().beginTransaction();
+                fr.replace(R.id.frameLayout,new fragment_recipe_details());
+                fr.addToBackStack(null);
+                fr.commit();
+
+            }
+        });
 
         return fragmentRandomRecipe;
     }

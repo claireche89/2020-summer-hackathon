@@ -20,6 +20,7 @@ public class fetchRecipeData extends AsyncTask {
     String data = "";
     String recipeName = "";
     String thumbnailURL = "";
+    String instruction = "";
     Bitmap thumbnailBMP = null;
 
     @Override
@@ -48,6 +49,7 @@ public class fetchRecipeData extends AsyncTask {
                 JSONObject recipe = (JSONObject) recipes.get(i);
                 recipeName = (String) recipe.get("strMeal") ;
                 thumbnailURL = (String) recipe.get("strMealThumb") ;
+             //   instruction = (String) recipe.get("strInstructions");
                 //System.out.println("thumbnail URL is " + thumbnailURL);
             }
 
@@ -79,6 +81,7 @@ public class fetchRecipeData extends AsyncTask {
 
         RandomRecipeFragment.RecipeName_TextView.setText(this.recipeName);
         RandomRecipeFragment.RecipeThumbnail_ImageView.setImageBitmap(this.thumbnailBMP);
+        //fragment_recipe_details.Recipe_TextView.setText(this.instruction);
 
     }
 }
