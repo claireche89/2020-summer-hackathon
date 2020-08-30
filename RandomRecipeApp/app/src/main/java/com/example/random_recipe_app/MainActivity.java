@@ -3,10 +3,10 @@ package com.example.random_recipe_app;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
 
+    Recipe current_recipe = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

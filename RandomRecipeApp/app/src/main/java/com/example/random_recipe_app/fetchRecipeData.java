@@ -1,6 +1,5 @@
 package com.example.random_recipe_app;
 
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 
@@ -18,14 +17,16 @@ import java.net.URL;
 
 public class fetchRecipeData extends AsyncTask {
     String data = "";
-    String recipeName = "";
-    String thumbnailURL = "";
-    String instruction = "";
-    Bitmap thumbnailBMP = null;
+//    String recipeName = "";
+//    String thumbnailURL = "";
+//    String instruction = "";
+//    Bitmap thumbnailBMP = null;
+    Recipe recipe;
 
     @Override
     protected Object doInBackground(Object[] objects) {
         try {
+
 
             //adapted from Abhishek Panwar's JSON Data Fetching & Parsing Tutorial: https://www.youtube.com/watch?v=Vcn4OuV4Ixg
 
@@ -41,16 +42,18 @@ public class fetchRecipeData extends AsyncTask {
             }
 
             //Parse through JSONObject for recipe data
+            recipe = new Recipe();
 
             JSONObject JO = new JSONObject(data);
             JSONArray recipes = JO.getJSONArray("meals");
 
             for (int i=0; i < recipes.length(); i++) {
-                JSONObject recipe = (JSONObject) recipes.get(i);
-                recipeName = (String) recipe.get("strMeal") ;
-                thumbnailURL = (String) recipe.get("strMealThumb") ;
-             //   instruction = (String) recipe.get("strInstructions");
-                //System.out.println("thumbnail URL is " + thumbnailURL);
+                JSONObject obj = (JSONObject) recipes.get(i);
+                recipe.setRecipeName( (String) obj.get("strMeal") );
+                recipe.setThumbnailURL( (String) obj.get("strMealThumb") );
+                recipe.setInstruction( (String) obj.get("strInstructions") );
+                //System.out.println("recipe name is " + recipe.getRecipeName());
+
             }
 
         } catch (MalformedURLException e) {
@@ -65,22 +68,22 @@ public class fetchRecipeData extends AsyncTask {
 
         //read in thumbnail image as bitmap
         try {
-            InputStream in = new java.net.URL(thumbnailURL).openStream();
-            thumbnailBMP = BitmapFactory.decodeStream(in);
+            InputStream in = new java.net.URL(recipe.getThumbnailURL()).openStream();
+            recipe.setThumbnailBMP( BitmapFactory.decodeStream(in) );
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return recipe;
     }
 
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
 
-        RandomRecipeFragment.RecipeName_TextView.setText(this.recipeName);
-        RandomRecipeFragment.RecipeThumbnail_ImageView.setImageBitmap(this.thumbnailBMP);
+        RandomRecipeFragment.RecipeName_TextView.setText(recipe.getRecipeName());
+        RandomRecipeFragment.RecipeThumbnail_ImageView.setImageBitmap(recipe.getThumbnailBMP());
         //fragment_recipe_details.Recipe_TextView.setText(this.instruction);
 
     }
