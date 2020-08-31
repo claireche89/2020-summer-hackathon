@@ -9,6 +9,27 @@ public class Recipe {
     String instruction = "";
     Bitmap thumbnailBMP = null;
 
+    public String[] getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(String[] ingredient) {
+        this.ingredient = ingredient;
+    }
+
+    String ingredient[] = null;
+
+
+    public String[] getMeasurement() {
+        return measurement;
+    }
+
+    public void setMeasurement(String[] measurement) {
+        this.measurement = measurement;
+    }
+
+    String measurement[] = null;
+
     public Recipe() {
 
     }

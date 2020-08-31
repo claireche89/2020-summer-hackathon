@@ -22,6 +22,7 @@ public class fetchRecipeData extends AsyncTask {
 //    String instruction = "";
 //    Bitmap thumbnailBMP = null;
     Recipe recipe;
+    String longString="";
 
     @Override
     protected Object doInBackground(Object[] objects) {
@@ -50,8 +51,28 @@ public class fetchRecipeData extends AsyncTask {
             for (int i=0; i < recipes.length(); i++) {
                 JSONObject obj = (JSONObject) recipes.get(i);
                 recipe.setRecipeName( (String) obj.get("strMeal") );
+
                 recipe.setThumbnailURL( (String) obj.get("strMealThumb") );
+
+                String[] ingredients=null;
+                String[] measurements=null;
+                longString="Ingredients: \n";
+                for(int j=0; j<20; j++){
+                    if((obj.get("strIngredient"+j)!=null)&&(obj.get("strMeasure"+j)!=null)){
+                        if(((String)obj.get("strIngredient"+j)!=" ")&&((String)obj.get("strMeasure"+j)!=" ")){
+                            ingredients[j]=(String) obj.get("strIngredient"+j);
+                            measurements[j]=(String) obj.get("strMeasure"+j);
+                        }
+                        longString=longString+measurements[j]+" "+ingredients[j]+"\n";
+
+
+                    }
+
+
+                }
                 recipe.setInstruction( (String) obj.get("strInstructions") );
+                longString=longString+"Instructions:\n"+recipe.getInstruction();
+
                 //System.out.println("recipe name is " + recipe.getRecipeName());
 
             }
