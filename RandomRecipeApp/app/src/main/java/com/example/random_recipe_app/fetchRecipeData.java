@@ -26,7 +26,7 @@ public class fetchRecipeData extends AsyncTask {
         try {
             //adapted from Abhishek Panwar's JSON Data Fetching & Parsing Tutorial: https://www.youtube.com/watch?v=Vcn4OuV4Ixg
 
-            //read in data from TheMealDB
+            //read in data from TheMealDB JSON API: https://www.themealdb.com/api.php
             URL url = new URL("https://www.themealdb.com/api/json/v1/1/random.php");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
@@ -55,11 +55,8 @@ public class fetchRecipeData extends AsyncTask {
                     longString=longString+ (String) obj.get("strMeasure"+j)+" "+(String) obj.get("strIngredient"+j)+"\n";
                 }
 
-
-
                 instruction+=(String) obj.get("strInstructions");
                 recipe.setInstruction( instruction );
-                System.out.println("recipe's instructions are " + recipe.getInstruction() + "\n");
             }
 
         } catch (MalformedURLException e) {
@@ -70,7 +67,7 @@ public class fetchRecipeData extends AsyncTask {
             e.printStackTrace();
         }
 
-        //adapted from Chris Ross's Android Image Loading from a String URL tutorial: ttps://medium.com/@crossphd/android-image-loading-from-a-string-url-6c8290b82c5e
+        //adapted from Chris Ross's Android Image Loading from a String URL tutorial: https://medium.com/@crossphd/android-image-loading-from-a-string-url-6c8290b82c5e
 
         //read in thumbnail image as bitmap
         try {
@@ -90,7 +87,7 @@ public class fetchRecipeData extends AsyncTask {
 
         RandomRecipeFragment.RecipeName_TextView.setText(recipe.getRecipeName());
         RandomRecipeFragment.RecipeThumbnail_ImageView.setImageBitmap(recipe.getThumbnailBMP());
-        RandomRecipeFragment.RecipeIngredients_TextView.setText(longString);  //name of variable used to store ingredients
+        RandomRecipeFragment.RecipeIngredients_TextView.setText(longString);
         RandomRecipeFragment.RecipeInstructions_TextView.setText(instruction);
 
     }
