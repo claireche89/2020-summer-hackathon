@@ -17,17 +17,13 @@ import java.net.URL;
 
 public class fetchRecipeData extends AsyncTask {
     String data = "";
-//    String recipeName = "";
-//    String thumbnailURL = "";
-//    String instruction = "";
-//    Bitmap thumbnailBMP = null;
     Recipe recipe;
+    String longString="";
+    String instruction="";
 
     @Override
     protected Object doInBackground(Object[] objects) {
         try {
-
-
             //adapted from Abhishek Panwar's JSON Data Fetching & Parsing Tutorial: https://www.youtube.com/watch?v=Vcn4OuV4Ixg
 
             //read in data from TheMealDB
@@ -51,9 +47,26 @@ public class fetchRecipeData extends AsyncTask {
                 JSONObject obj = (JSONObject) recipes.get(i);
                 recipe.setRecipeName( (String) obj.get("strMeal") );
                 recipe.setThumbnailURL( (String) obj.get("strMealThumb") );
-                recipe.setInstruction( (String) obj.get("strInstructions") );
-                //System.out.println("recipe name is " + recipe.getRecipeName());
 
+                String[] ingredients=null;
+                String[] measurements=null;
+                longString="Ingredients: \n";
+                for(int j=0; j<20; j++){
+                    if((obj.get("strIngredient"+j)!=null)&&(obj.get("strMeasure"+j)!=null)){
+                        if(((String)obj.get("strIngredient"+j)!=" ")&&((String)obj.get("strMeasure"+j)!=" ")){
+                            ingredients[j]=(String) obj.get("strIngredient"+j);
+                            measurements[j]=(String) obj.get("strMeasure"+j);
+                        }
+                        longString=longString+measurements[j]+" "+ingredients[j]+"\n";
+
+
+                    }
+
+
+                }
+
+                recipe.setInstruction( (String) obj.get("strInstructions") );
+                instruction="Instructions:\n"+recipe.getInstruction();
             }
 
         } catch (MalformedURLException e) {
@@ -84,7 +97,8 @@ public class fetchRecipeData extends AsyncTask {
 
         RandomRecipeFragment.RecipeName_TextView.setText(recipe.getRecipeName());
         RandomRecipeFragment.RecipeThumbnail_ImageView.setImageBitmap(recipe.getThumbnailBMP());
-        //fragment_recipe_details.Recipe_TextView.setText(this.instruction);
+        RandomRecipeFragment.RecipeIngredients_TextView.setText(longString);  //name of variable used to store ingredients
+        RandomRecipeFragment.RecipeInstructions_TextView.setText(instruction);
 
     }
 }

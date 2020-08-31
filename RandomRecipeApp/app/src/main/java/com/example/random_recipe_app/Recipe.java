@@ -8,6 +8,8 @@ public class Recipe {
     String thumbnailURL = "";
     String instruction = "";
     Bitmap thumbnailBMP = null;
+    String ingredient[] = null;
+    String measurement[] = null;
 
     public Recipe() {
 
@@ -29,6 +31,14 @@ public class Recipe {
         return thumbnailBMP;
     }
 
+    public String[] getIngredient() {
+        return ingredient;
+    }
+
+    public String[] getMeasurement() {
+        return measurement;
+    }
+
     public void setRecipeName(String recipeName) {
         this.recipeName = recipeName;
     }
@@ -43,6 +53,14 @@ public class Recipe {
 
     public void setThumbnailBMP(Bitmap thumbnailBMP) {
         this.thumbnailBMP = thumbnailBMP;
+    }
+
+    public void setIngredient(String[] ingredient) {
+        this.ingredient = ingredient;
+    }
+
+    public void setMeasurement(String[] measurement) {
+        this.measurement = measurement;
     }
 
 }
