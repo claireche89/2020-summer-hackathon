@@ -19,7 +19,7 @@ public class fetchRecipeData extends AsyncTask {
     String data = "";
     Recipe recipe;
     String longString="";
-    String instruction="";
+    String instruction="Instructions:\n";
 
     @Override
     protected Object doInBackground(Object[] objects) {
@@ -51,22 +51,15 @@ public class fetchRecipeData extends AsyncTask {
                 String[] ingredients=null;
                 String[] measurements=null;
                 longString="Ingredients: \n";
-                for(int j=0; j<20; j++){
-                    if((obj.get("strIngredient"+j)!=null)&&(obj.get("strMeasure"+j)!=null)){
-                        if(((String)obj.get("strIngredient"+j)!=" ")&&((String)obj.get("strMeasure"+j)!=" ")){
-                            ingredients[j]=(String) obj.get("strIngredient"+j);
-                            measurements[j]=(String) obj.get("strMeasure"+j);
-                        }
-                        longString=longString+measurements[j]+" "+ingredients[j]+"\n";
-
-
-                    }
-
-
+                for(int j=1; j<=20; j++){
+                    longString=longString+ (String) obj.get("strMeasure"+j)+" "+(String) obj.get("strIngredient"+j)+"\n";
                 }
 
-                recipe.setInstruction( (String) obj.get("strInstructions") );
-                instruction="Instructions:\n"+recipe.getInstruction();
+
+
+                instruction+=(String) obj.get("strInstructions");
+                recipe.setInstruction( instruction );
+                System.out.println("recipe's instructions are " + recipe.getInstruction() + "\n");
             }
 
         } catch (MalformedURLException e) {

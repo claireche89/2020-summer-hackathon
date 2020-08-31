@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "JSON_Fetch_and_Parse_Tutorial"
+rootProject.name = "RandomRecipeApp"
