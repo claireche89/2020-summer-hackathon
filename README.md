@@ -6,12 +6,12 @@
 
 Our project helps defeat Coronavirus lockdown "cooking fatigue" by generating a random recipe with an appetizing picture to inspire the user to get the ingredients and follow the instructions to cook the meal!
 
-Devpost project page: [Devpost](https://...)
+Devpost project page: [Devpost](https://devpost.com/software/2020-summer-hackathon)
 
 ### Authors
 
-* Lanna Mack - Devpost ID – ljmack@seas.upenn.edu – [GitHub](https://github.com/lannaj)
-* Xinyi Che Samore - Devpost ID – xsamore@seas.upenn.edu – [GitHub](https://github.com/claireche89)
+* Lanna Mack - lannaj – ljmack@seas.upenn.edu – [GitHub: lannaj](https://github.com/lannaj) / [GitHub: lmack335] (https://github.com/lmack335)
+* Xinyi Che Samore - claireche89 – xsamore@seas.upenn.edu – [GitHub: claireche89](https://github.com/claireche89)
 
 ## Usage
 
