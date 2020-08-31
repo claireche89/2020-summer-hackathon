@@ -23,6 +23,7 @@ public class fetchRecipeData extends AsyncTask {
 //    Bitmap thumbnailBMP = null;
     Recipe recipe;
     String longString="";
+    String instruction="";
 
     @Override
     protected Object doInBackground(Object[] objects) {
@@ -71,7 +72,7 @@ public class fetchRecipeData extends AsyncTask {
 
                 }
                 recipe.setInstruction( (String) obj.get("strInstructions") );
-                longString=longString+"Instructions:\n"+recipe.getInstruction();
+                instruction="Instructions:\n"+recipe.getInstruction();
 
                 //System.out.println("recipe name is " + recipe.getRecipeName());
 
